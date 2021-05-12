@@ -1,17 +1,14 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import App from "../App";
+import { shallow } from "enzyme";
+import App from "components/App";
+import CommentBox from "components/CommentBox";
+import CommentList from "components/CommentList";
 
+const wrapped = shallow(<App />);
 it("shows a commment box", () => {
-  //crea un div imaginario en JSDOM
-  const div = document.createElement("div");
+  expect(wrapped.find(CommentBox).length).toEqual(1);
+});
 
-  //Mete App adentro del div imaginario
-  ReactDOM.render(<App />, div);
-
-  // Mira dentro del div, y checkea que CommentBox este ahi dentro.
-  expect(div.innerHTML).toContain("Comment Box");
-
-  //Realiza limpieza una vez terminado el test
-  ReactDOM.unmountComponentAtNode(div);
+it("shows a comment list", () => {
+  expect(wrapped.find(CommentList).length).toEqual(1);
 });

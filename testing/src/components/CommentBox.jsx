@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { connect } from "react-redux";
-import * as actions from "redux/actions";
+import { useDispatch } from "react-redux";
 import { saveComment } from "redux/actions";
 
 const CommentBox = () => {
   const [comment, setComment] = useState("");
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     setComment(e.target.value);
@@ -13,7 +12,7 @@ const CommentBox = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    saveComment(comment);
+    dispatch(saveComment(comment));
 
     setComment("");
   };
@@ -29,4 +28,4 @@ const CommentBox = () => {
   );
 };
 
-export default connect(null, actions)(CommentBox);
+export default CommentBox;

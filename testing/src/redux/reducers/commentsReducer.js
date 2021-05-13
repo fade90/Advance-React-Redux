@@ -1,4 +1,4 @@
-import { SAVE_COMMENT } from "redux/actions/types";
+import { SAVE_COMMENT, FETCH_COMMENTS } from "redux/actions/types";
 
 const initialState = [];
 
@@ -6,6 +6,9 @@ const commentsReducer = (state = initialState, action) => {
   switch (action.type) {
     case SAVE_COMMENT:
       return [...state, action.payload];
+    case FETCH_COMMENTS:
+      const comments = action.payload.data.map((comment) => comment.name);
+      return [...state, ...comments];
     default:
       return state;
   }

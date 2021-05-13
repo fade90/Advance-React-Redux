@@ -10,8 +10,8 @@ export const saveComment = (comment) => {
   };
 };
 
-export const fetchComments = () => {
-  const response = axios.get(BASE_URL);
+export const fetchComments = async () => {
+  const response = await axios.get(BASE_URL);
 
   return {
     type: FETCH_COMMENTS,

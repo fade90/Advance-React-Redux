@@ -1,8 +1,8 @@
-import { SAVE_COMMENTS } from "redux/actions/types";
+import { SAVE_COMMENT } from "redux/actions/types";
 
 export const saveComment = (comment) => {
   return {
-    type: SAVE_COMMENTS,
+    type: SAVE_COMMENT,
     payload: comment,
   };
 };

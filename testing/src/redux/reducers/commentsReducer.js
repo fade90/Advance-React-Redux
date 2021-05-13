@@ -1,10 +1,10 @@
-import { SAVE_COMMENTS } from "redux/actions/types";
+import { SAVE_COMMENT } from "redux/actions/types";
 
 const initialState = [];
 
 const commentsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SAVE_COMMENTS:
+    case SAVE_COMMENT:
       return [...state, action.payload];
     default:
       return state;
